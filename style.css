@@ -49,9 +49,9 @@ input {
   color: var(--primary);
   font-weight: 700;
   border: none;
-  padding: 0.25em;
   text-align: right;
   outline: none;
+  width: 90%;
 }
 
 label {
@@ -71,13 +71,13 @@ label {
   max-width: 100%;
 }
 
-.container__app-title {
+.app-title {
   margin: 0 auto;
   letter-spacing: 0.5em;
-  padding: 1.7em;
+  padding: 1em;
 }
 
-.container__calc {
+.calc {
   margin: 0 auto;
   background: var(--white);
   color: var(--darkGrayPrimary);
@@ -85,6 +85,7 @@ label {
   border-radius: 25px;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 }
 
 .btn-container {

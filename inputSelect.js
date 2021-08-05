@@ -20,8 +20,10 @@ btnContainers.forEach((input) => {
 
     // parses all child elements and selects the correct input if the input isnt directly clicked on.
     Object.values(input.childNodes).forEach((child) => {
-      if (child.id === "billTotal" || child.id === "numOfPeople")
-        return child.focus();
+      if (child.id === "billTotal" || child.id === "numOfPeople") {
+        child.focus();
+        child.select();
+      }
     });
 
     isSelected = true;

@@ -35,23 +35,27 @@ const getVals = () => {
 
   //buttonSelect.js turns customInput to null when btn is selected which passes this condition
   if (!totalsObj.tipPercentage) {
-    if (!tipPercentage) return;
     const tipButton = document.querySelector(".selected");
-    totalsObj.tipPercentage = tipButton.value;
+    if (!tipButton) totalsObj.tipPercentage = "";
+    else {
+      totalsObj.tipPercentage = tipButton.value;
+    }
   }
-
   return totalsObj;
 };
 
 const calcTotal = () => {
   // deconstructs values off object returned by getVals
-  const { billTotal, tipPercentage, numOfPeople } = getVals();
+  let { billTotal, tipPercentage, numOfPeople } = getVals();
   if (!billTotal || billTotal === 0) return;
   if (!tipPercentage) {
     total.innerHTML = (billTotal / numOfPeople).toFixed(2);
-    tipAmount.innerHTML = "";
+    return (tipAmount.innerHTML = "");
   } else {
-    tipAmount.innerHTML = (tipPercentage / numOfPeople).toFixed(2);
+    tipPercentage = tipPercentage / 100;
+    tipAmount.innerHTML = ((tipPercentage * billTotal) / numOfPeople).toFixed(
+      2
+    );
 
     total.innerHTML = (
       Number(tipAmount.innerHTML) +

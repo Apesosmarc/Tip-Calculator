@@ -23,50 +23,62 @@ const debounce = (func) => {
   };
 };
 
-// Reads current values stored in dom and passes them as totalObj
-const getVals = () => {
-  // collects all input nodes, stores them in array using spread.
-  let currInputs = [...document.querySelectorAll("input")];
+// // Reads current values stored in dom and passes them as totalObj
+// const getVals = () => {
+//   // collects all input nodes, stores them in array using spread.
+//   let currInputs = [...document.querySelectorAll("input")];
 
-  // Iterates over each input and stores id + value into nested arrays
-  currInputs = currInputs.map((input) => [input.id, input.value]);
-  // takes nested Arrays and creates an object of entries
-  const totalsObj = Object.fromEntries(currInputs);
+//   // Iterates over each input and stores id + value into nested arrays
+//   currInputs = currInputs.map((input) => [input.id, input.value]);
+//   // takes nested Arrays and creates an object of entries
+//   const totalsObj = Object.fromEntries(currInputs);
 
-  //buttonSelect.js turns customInput to null when btn is selected which passes this condition
-  if (!totalsObj.tipPercentage) {
-    const tipButton = document.querySelector(".selected");
-    if (!tipButton) totalsObj.tipPercentage = "";
-    else {
-      totalsObj.tipPercentage = tipButton.value;
+//   //buttonSelect.js turns customInput to null when btn is selected which passes this condition
+//   if (!totalsObj.tipPercentage) {
+//     const tipButton = document.querySelector(".selected");
+//     if (!tipButton) totalsObj.tipPercentage = "";
+//     else {
+//       totalsObj.tipPercentage = tipButton.value;
+//     }
+//   }
+//   return totalsObj;
+// };
+
+const calc = {
+  bill: null,
+  tip: null,
+  people: 1,
+  toNum() {
+    for (const prop in this) {
+      if (typeof this[prop] === "string") this[prop] = Number(this[prop]);
     }
-  }
-  return totalsObj;
+  },
 };
 
 const calcTotal = () => {
   // deconstructs values off object returned by getVals
-  let { billTotal, tipPercentage, numOfPeople } = getVals();
-  if (!billTotal || billTotal === 0) return;
-  if (!tipPercentage) {
-    total.innerHTML = (billTotal / numOfPeople).toFixed(2);
+  calc.toNum();
+
+  const { bill, tip, people } = calc;
+
+  if (!bill || bill === 0) return;
+  if (!tip) {
+    total.innerHTML = (bill / people).toFixed(2);
     return (tipAmount.innerHTML = "");
   } else {
-    tipPercentage = tipPercentage / 100;
-    tipAmount.innerHTML = ((tipPercentage * billTotal) / numOfPeople).toFixed(
-      2
-    );
+    const tipDec = tip / 100;
+    const tipNumber = (tipDec * bill) / people;
+    const totalNumber = (tipNumber + bill / people).toFixed(2);
 
-    total.innerHTML = (
-      Number(tipAmount.innerHTML) +
-      Number(billTotal) / numOfPeople
-    ).toFixed(2);
+    tipAmount.innerHTML = tipNumber;
+    total.innerHTML = totalNumber;
   }
 };
 
 billInput.addEventListener(
   "keyup",
   debounce((e) => {
+    calc.bill = billInput.value;
     calcTotal();
   })
 );
@@ -74,6 +86,7 @@ billInput.addEventListener(
 percInput.addEventListener(
   "keyup",
   debounce((e) => {
+    calc.tip = percInput.value;
     calcTotal();
   })
 );
@@ -81,6 +94,7 @@ percInput.addEventListener(
 personInput.addEventListener(
   "keyup",
   debounce((e) => {
+    calc.people = numOfPeople.value;
     calcTotal();
   })
 );

@@ -78,7 +78,6 @@ label {
 }
 
 .container__calc {
-  margin: 0 auto;
   background: var(--white);
   color: var(--darkGrayPrimary);
   padding: 1em;
@@ -99,11 +98,12 @@ label {
 }
 
 .btn-container__logo {
-  margin-left: 1em;
+  margin-left: 0.5em;
 }
 
 .btn-container__input {
   text-align: right;
+  max-width: 90%;
 }
 
 /* TIP BUTTON SECTION ===== */

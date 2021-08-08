@@ -1,5 +1,5 @@
 const buttons = document.querySelectorAll("button");
-const tipPercentage = document.querySelector("#tipPercentage");
+const tipPercentage = document.querySelector("#tip");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {

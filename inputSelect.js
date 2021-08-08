@@ -1,5 +1,5 @@
 const btnContainers = [...document.querySelectorAll(".btn-container")];
-const billTotal = document.getElementById("billTotal");
+const billTotal = document.getElementById("bill");
 
 function removeAllSelected(selected) {
   return selected.forEach((input) => {
@@ -20,7 +20,7 @@ btnContainers.forEach((input) => {
 
     // parses all child elements and selects the correct input if the input isnt directly clicked on.
     Object.values(input.childNodes).forEach((child) => {
-      if (child.id === "billTotal" || child.id === "numOfPeople") {
+      if (child.id === "bill" || child.id === "people") {
         child.focus();
         child.select();
       }

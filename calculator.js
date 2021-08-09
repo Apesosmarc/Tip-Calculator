@@ -1,8 +1,3 @@
-// Input Selectors
-const billInput = document.querySelector("#bill");
-const percInput = document.querySelector("#tip");
-const personInput = document.querySelector("#people");
-
 // Num Output Selectors
 const total = document.querySelector("#totalPerPerson");
 const tipAmount = document.querySelector("#tipAmount");
@@ -55,7 +50,7 @@ const calcTotal = () => {
   }
 };
 
-const inputArr = [billInput, percInput, personInput];
+const inputArr = [billInput, percInput, peopleInput];
 
 inputArr.forEach((input) => {
   input.addEventListener(
@@ -67,36 +62,10 @@ inputArr.forEach((input) => {
   );
 });
 
-// billInput.addEventListener(
-//   "keyup",
-//   debounce((e) => {
-//     calc.bill = billInput.value;
-//     calcTotal();
-//   })
-// );
-
-// percInput.addEventListener(
-//   "keyup",
-//   debounce((e) => {
-//     console.log("input on percinput");
-//     calc.tip = percInput.value;
-//     calcTotal();
-//   })
-// );
-
-// personInput.addEventListener(
-//   "keyup",
-//   debounce((e) => {
-//     calc.people = numOfPeople.value;
-//     calcTotal();
-//   })
-// );
-
 buttons.forEach((btn) => {
   btn.addEventListener(
     "click",
     debounce((e) => {
-      console.log("btn clicked");
       calc.tip = btn.value;
       calcTotal();
     })

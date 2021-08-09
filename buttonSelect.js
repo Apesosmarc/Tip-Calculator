@@ -1,23 +1,13 @@
 const buttons = document.querySelectorAll("button");
-const tipPercentage = document.querySelector("#tip");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    removeAllSelectedBtns(buttons);
-    tipPercentage.value = "";
+    removeAllSelected(buttons);
+    percInput.value = "";
     btn.classList.add("selected");
   });
 });
 
-tipPercentage.addEventListener("click", () => {
-  removeAllSelectedBtns(buttons);
+percInput.addEventListener("click", () => {
+  removeAllSelected(buttons);
 });
-
-// iterates all the buttons and removes selected so only one button can be selected on click
-const removeAllSelectedBtns = (buttons) => {
-  buttons.forEach((btn) => {
-    btn.classList.remove("selected");
-  });
-};
-
-// if button selected, custom.value = ""

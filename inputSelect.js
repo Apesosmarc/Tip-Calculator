@@ -1,44 +1,47 @@
+// Input Selectors
+const billInput = document.querySelector("#bill");
+const percInput = document.querySelector("#tip");
+const peopleInput = document.querySelector("#people");
+
+// Container Select
 const btnContainers = [...document.querySelectorAll(".btn-container")];
-const billTotal = document.getElementById("bill");
+const billContainer = document.getElementById("billContainer");
+const peopleContainer = document.getElementById("peopleContainer");
 
-function removeAllSelected(selected) {
-  return selected.forEach((input) => {
-    input.classList.remove("btn-container--focus");
-  });
-}
+// Container + all children select
+const billInputs = [
+  ...document.querySelectorAll("#billContainer > *"),
+  billContainer,
+];
+const peopleInputs = [
+  ...document.querySelectorAll("#peopleContainer > *"),
+  peopleContainer,
+];
 
-let isSelected = false;
-btnContainers.forEach((input) => {
-  // Iterates each input
-  input.addEventListener("click", (e) => {
-    // if an input is selected and an input is clicked, removeAllSelected
-    if (isSelected) {
-      removeAllSelected(btnContainers);
-    }
-    // Add selected stlyes to the input that was selected
-    input.classList.add("btn-container--focus");
+let isFocused = false;
 
-    // parses all child elements and selects the correct input if the input isnt directly clicked on.
-    Object.values(input.childNodes).forEach((child) => {
-      if (child.id === "bill" || child.id === "people") {
-        child.focus();
-        child.select();
-      }
-    });
+const containerSelect = (container, input) => {
+  if (isFocused) removeAllFocused(btnContainers);
+  container.classList.add("btn-container--focus");
+  input.focus();
+  input.select();
+  isFocused = true;
+};
 
-    isSelected = true;
-  });
+billInputs.forEach((child) => {
+  child.addEventListener("click", () =>
+    containerSelect(billContainer, billInput)
+  );
 });
 
-document.addEventListener("click", ({ target }) => {
-  // Checks if any input is selected
-  const isSelected = document.querySelector(".btn-container--focus");
+peopleInputs.forEach((child) => {
+  child.addEventListener("click", () =>
+    containerSelect(peopleContainer, peopleInput)
+  );
+});
 
-  // if none, stop
-  if (!isSelected) return;
-
-  // if exact input wasnt selected, remove all highlight styles
-  if (target.id !== isSelected.id && target.parentNode.id !== isSelected.id) {
-    return removeAllSelected(btnContainers);
+document.addEventListener("click", (e) => {
+  if (!billInputs.includes(e.target) && !peopleInputs.includes(e.target)) {
+    removeAllFocused(btnContainers);
   }
 });

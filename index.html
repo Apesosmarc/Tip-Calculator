@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="/utils/utils.js" defer></script>
     <script src="inputSelect.js" defer></script>
     <script src="buttonSelect.js" defer></script>
     <script src="calculator.js" defer></script>
@@ -23,7 +24,7 @@
 
       <div class="container__calc">
         <label class="calc__billTotalLabel" for="billTotal">Bill:</label>
-        <div id="billInput" class="btn-container">
+        <div id="billContainer" class="btn-container">
           <svg
             class="btn-container__logo"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,7 @@
         </div>
 
         <label for="numOfPeople">Number of people</label>
-        <div id="peopleInput" class="btn-container">
+        <div id="peopleContainer" class="btn-container">
           <svg
             class="btn-container__logo"
             xmlns="http://www.w3.org/2000/svg"

@@ -54,10 +54,14 @@ const inputArr = [billInput, percInput, peopleInput];
 
 inputArr.forEach((input) => {
   input.addEventListener(
-    "keyup",
+    "input",
     debounce((e) => {
-      calc[input.id] = input.value;
-      calcTotal();
+      if (input.value === "") return;
+
+      if (validateNum(input)) {
+        calc[input.id] = input.value;
+        calcTotal();
+      }
     })
   );
 });

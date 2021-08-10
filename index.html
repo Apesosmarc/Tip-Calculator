@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <script src="/utils/utils.js" defer></script>
+    <script src="/utils/errorHandle.js" defer></script>
     <script src="inputSelect.js" defer></script>
     <script src="buttonSelect.js" defer></script>
     <script src="calculator.js" defer></script>
@@ -23,7 +24,13 @@
       <h1 class="container__app-title">SPLI<br />TTER</h1>
 
       <div class="container__calc">
-        <label class="calc__billTotalLabel" for="billTotal">Bill:</label>
+        <div class="label-container">
+          <label class="calc__billTotalLabel" for="billTotal">Bill:</label>
+          <p id="billError" class="label-container__error error hidden">
+            Can't be Zero
+          </p>
+        </div>
+
         <div id="billContainer" class="btn-container">
           <svg
             class="btn-container__logo"
@@ -39,7 +46,7 @@
           <input class="btn-container__input" type="number" id="bill" />
         </div>
 
-        <div class="calc__btn-grid">
+        <div class="btn-grid">
           <label class="btn-grid__title" for="tipPercentage"
             >Select tip percentage:</label
           >
@@ -52,7 +59,13 @@
           <input class="btn-grid__btn" id="tip" value="" placeholder="Custom" />
         </div>
 
-        <label for="numOfPeople">Number of people</label>
+        <div class="label-container">
+          <label for="numOfPeople">Number of people</label>
+          <p id="peopleError" class="label-container__error error hidden">
+            Can't be Zero
+          </p>
+        </div>
+
         <div id="peopleContainer" class="btn-container">
           <svg
             class="btn-container__logo"

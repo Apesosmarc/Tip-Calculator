@@ -45,7 +45,6 @@ button {
   border-radius: 6px;
   border: none;
   padding: 0.2em 0;
-  width: 100%;
 }
 
 .selected {
@@ -72,6 +71,12 @@ label {
   margin-bottom: 0.5em;
 }
 
+@media (min-width: 1250px) {
+  button {
+    min-width: 80px;
+  }
+}
+
 /* CALCULATOR STYLING */
 
 .container {
@@ -82,19 +87,44 @@ label {
   max-width: 100%;
 }
 
-.container__app-title {
+.app-title {
   margin: 0 auto;
   letter-spacing: 0.5em;
   padding: 0.5em;
 }
 
-.container__calc {
+.calc {
   background: var(--white);
   color: var(--darkGrayPrimary);
   padding: 1em;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 1250px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  .calc {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    max-width: 60%;
+    padding: 0.5em;
+    gap: 1.5em;
+    margin-bottom: 3em;
+  }
+  .inputs {
+    padding: 1em;
+    max-width: 50%;
+  }
+  .app-title {
+    margin-bottom: 5%;
+  }
 }
 
 .btn-container {
@@ -140,6 +170,12 @@ label {
   text-align: center;
 }
 
+@media (min-width: 1250px) {
+  .btn-grid {
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+  }
+}
+
 /* NUMBER OF PEOPLE STYLING ============ */
 
 .label-container {
@@ -171,4 +207,21 @@ label {
 .display__total {
   color: hsl(172, 67%, 45%);
   font-size: 1.25rem;
+}
+
+@media (min-width: 1250px) {
+  .display {
+    min-width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+  .display__container {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+  }
+  .display__total {
+    font-size: 1.6rem;
+  }
 }

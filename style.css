@@ -244,5 +244,6 @@ label {
   }
   .display__resetBtn {
     margin: auto 0 0;
+    align-self: center;
   }
 }

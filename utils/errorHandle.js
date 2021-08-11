@@ -2,6 +2,15 @@ const validateNum = (input) => {
   const { id, parentElement, value } = input;
   const error = document.getElementById(`${id}Error`);
 
+  if (input.id === "tip" && input.value <= 0) {
+    input.value = "";
+    return false;
+  }
+
+  if (input.id === "tip" && input.value > 0) {
+    return true;
+  }
+
   let isShowing = false;
   if (value <= 0) {
     isShowing = true;

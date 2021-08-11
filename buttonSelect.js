@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll("button");
+const resetBtn = document.querySelector(".display__resetBtn");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -10,4 +11,8 @@ buttons.forEach((btn) => {
 
 percInput.addEventListener("click", () => {
   removeAllSelected(buttons);
+});
+
+resetBtn.addEventListener("click", () => {
+  location.reload();
 });

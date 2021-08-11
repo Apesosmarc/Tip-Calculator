@@ -45,6 +45,12 @@ button {
   border-radius: 6px;
   border: none;
   padding: 0.2em 0;
+  font-size: 0.9rem;
+  max-width: 350px;
+}
+
+button:active {
+  background-color: var(--lightGrayCyan);
 }
 
 .selected {
@@ -62,6 +68,7 @@ input {
   text-align: right;
   outline: none;
   width: 100%;
+  font-size: 0.9rem;
 }
 
 label {
@@ -170,7 +177,7 @@ label {
   text-align: center;
 }
 
-@media (min-width: 1250px) {
+@media (min-width: 1000px) {
   .btn-grid {
     grid-template-columns: repeat(3, minmax(80px, 1fr));
   }
@@ -209,12 +216,23 @@ label {
   font-size: 1.25rem;
 }
 
+.display__resetBtn {
+  background-color: hsl(172, 67%, 45%);
+  padding: 0.25em 0.75em;
+  width: 100%;
+  color: var(--darkPrimary);
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 0.5em;
+}
+
 @media (min-width: 1250px) {
   .display {
     min-width: 45%;
     display: flex;
     flex-direction: column;
     margin-top: 0;
+    max-height: 375px;
   }
   .display__container {
     margin-top: 1em;
@@ -223,5 +241,8 @@ label {
   }
   .display__total {
     font-size: 1.6rem;
+  }
+  .display__resetBtn {
+    margin: auto 0 0;
   }
 }

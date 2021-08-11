@@ -4,6 +4,8 @@
 
 ## HTML, Vanilla CSS + JS
 
+**[Link to live site](https://distracted-noether-ad830f.netlify.app/)**
+
 **Basic Features:**
 * Mobile and desktop layout
 * Use of CSS grid + flexbox for responsiveness

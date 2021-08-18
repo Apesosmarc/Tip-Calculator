@@ -78,10 +78,9 @@ label {
   margin-bottom: 0.5em;
 }
 
-@media (min-width: 1250px) {
-  button {
-    min-width: 80px;
-  }
+/* Firefox Disablo Text Arrows on inpts*/
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* CALCULATOR STYLING */

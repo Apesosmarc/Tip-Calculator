@@ -5,6 +5,12 @@ const tipAmount = document.querySelector("#tipAmount");
 // Sets global debounce time in ms
 const inputDebounceTime = 1000;
 
+// Dollar Conversion Func
+const dollarUS = Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 const debounce = (func) => {
   // init outside variable for closure
   let timeId;
@@ -45,23 +51,32 @@ const calcTotal = () => {
     const tipNumber = +((tipDec * bill) / people).toFixed(2);
     const totalNumber = +(bill / people + tipNumber).toFixed(2);
 
-    tipAmount.innerHTML = tipNumber;
-    total.innerHTML = totalNumber;
+    tipAmount.innerHTML = dollarUS.format(tipNumber);
+    total.innerHTML = dollarsUS.format(totalNumber);
   }
 };
 
 const inputArr = [billInput, percInput, peopleInput];
+const numsOnlyRegex = /^\d*\.?\d*$/;
+
+inputArr.forEach((input) => {
+  input.addEventListener("keydown", (e) => {
+    if (!numsOnlyRegex.test(e.key)) {
+      input.value = "";
+    }
+  });
+});
 
 inputArr.forEach((input) => {
   input.addEventListener(
     "input",
     debounce((e) => {
-      if (input.value === "") return;
-
-      if (validateNum(input)) {
-        calc[input.id] = input.value;
-        calcTotal();
-      }
+      if (numsOnlyRegex.test(input.value)) {
+        if (validateNum(input)) {
+          calc[input.id] = input.value;
+          calcTotal();
+        }
+      } else input.value = "";
     })
   );
 });

@@ -24,3 +24,13 @@ const validateNum = (input) => {
     return true;
   }
 };
+
+// const numsOnlyRegex = /^\d*\.?\d*$/;
+
+// if (numsOnlyRegex.test(input.value)
+
+const numValidate = (input) => {
+  if ((input = "")) {
+    input = "";
+  }
+};

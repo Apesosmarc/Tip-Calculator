@@ -37,6 +37,10 @@ p.error {
   color: var(--error);
 }
 
+.hidden-h1 {
+  color: white;
+}
+
 /* BUTTON + LABEL STYLING ====*/
 
 button {
@@ -71,7 +75,8 @@ input {
   font-size: 0.9rem;
 }
 
-label {
+label,
+.label {
   font-size: 16px;
   font-weight: 700;
   color: var(--darkPrimary);

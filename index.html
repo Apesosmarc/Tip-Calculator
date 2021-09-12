@@ -25,8 +25,9 @@
 
       <div class="calc">
         <section class="inputs">
+          <h1 class="hidden-h1">Tip Calculator Display</h1>
           <div class="label-container">
-            <label class="calc__billTotalLabel">Bill:</label>
+            <p class="calc__billTotalLabel label">Bill:</p>
             <p id="billError" class="label-container__error error hidden">
               Can't be Zero
             </p>
@@ -53,9 +54,9 @@
           </div>
 
           <div class="btn-grid">
-            <label class="btn-grid__title" for="tipPercentage"
-              >Select tip percentage:</label
-            >
+            <p class="btn-grid__title label" for="tipPercentage">
+              Select tip percentage:
+            </p>
             <button value="05" id="5p" class="target button">5%</button>
             <button value="10" id="10p" class="target button">10%</button>
             <button value="15" id="15p" class="target button">15%</button>
@@ -72,7 +73,7 @@
           </div>
 
           <div class="label-container">
-            <label for="people">Number of people</label>
+            <p class="label">Number of people</p>
             <p id="peopleError" class="label-container__error error hidden">
               Can't be Zero
             </p>

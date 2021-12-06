@@ -6,10 +6,14 @@
 
 **[Link to live site](https://distracted-noether-ad830f.netlify.app/)**
 
+**Stack**
+* HTML
+* CSS
+* Vanilla JS
+
 **Basic Features:**
 * Mobile and desktop layout
-* Use of CSS grid + flexbox for responsiveness
-
+* CSS FlexBox & Grid for mobile Resposiveness
 * Use of custom debounce function on inputs that calculate 1s after user input
-* Error Handle function validates input is greater than zero
-* Use of buttons & custom inputs that collect data
+* Input Error Handling
+* Custom input & button styling using CSS

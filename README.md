@@ -4,8 +4,6 @@
 
 ## HTML, Vanilla CSS + JS
 
-![Splitter](/splitter.jpg)
-
 **[Link to live site](https://distracted-noether-ad830f.netlify.app/)**
 
 **Stack**
@@ -19,3 +17,5 @@
 * Use of custom debounce function on inputs that calculate 1s after user input
 * Input Error Handling
 * Custom input & button styling using CSS
+
+![Splitter](/splitter.jpg)

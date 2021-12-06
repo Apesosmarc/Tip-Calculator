@@ -4,6 +4,8 @@
 
 ## HTML, Vanilla CSS + JS
 
+![Splitter](/splitter.jpg)
+
 **[Link to live site](https://distracted-noether-ad830f.netlify.app/)**
 
 **Stack**

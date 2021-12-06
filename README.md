@@ -2,9 +2,9 @@
 
 **A tip calculator that will split the bill based on tip percentage and number of people paying**
 
-## HTML, Vanilla CSS + JS
+## FrontEnd Mentor Challenge
 
-**[Link to live site](https://distracted-noether-ad830f.netlify.app/)**
+***[Link to live site](https://distracted-noether-ad830f.netlify.app/)***
 
 **Stack**
 * HTML
@@ -18,4 +18,4 @@
 * Input Error Handling
 * Custom input & button styling using CSS
 
-![Splitter](/splitter.jpg)
+

@@ -4,7 +4,7 @@
 
 ## FrontEnd Mentor Challenge
 
-***[Link to live site](https://distracted-noether-ad830f.netlify.app/)***
+**[LINK TO SITE](https://distracted-noether-ad830f.netlify.app/)**
 
 **Stack**
 * HTML
